@@ -11,6 +11,7 @@ import {
   faSearch,
   faTrash,
   faVideo,
+  faWifi,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { createApp } from "vue";
@@ -28,7 +29,8 @@ library.add(
   faChevronLeft,
   faChevronRight,
   faRedoAlt,
-  faSearch
+  faSearch,
+  faWifi
 );
 
 const app = createApp(App).component("font-awesome-icon", FontAwesomeIcon);

@@ -75,7 +75,7 @@ export default {
 :root {
   --input-primary: #f1f1f1;
   --input-secondary: #3eaeff;
-  --delete: rgb(241, 56, 56);
+  --error: rgb(241, 86, 86);
   --save: rgb(43, 201, 43);
 }
 

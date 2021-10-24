@@ -1,6 +1,5 @@
 <script>
 import { ref } from "@vue/reactivity";
-import dns from "dns";
 import { onMounted } from "@vue/runtime-core";
 export default {
   setup() {
@@ -22,8 +21,9 @@ export default {
 <template>
   <section v-show="!isConnected" class="detect-internet">
     <div class="detect-internet__card">
+      <font-awesome-icon icon="wifi" size="2x" />
       <h2>No internet connection</h2>
-      <h3>Please connect to the internet to use this app</h3>
+      <h3>Please connect to the internet to use the app</h3>
     </div>
   </section>
 </template>
@@ -38,7 +38,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(black, 0.2);
+  background-color: rgba(black, 0.1);
   z-index: 3;
 
   .detect-internet__card {
@@ -46,6 +46,8 @@ export default {
     border-radius: 0.5rem;
     background-color: white;
     text-align: center;
+    outline: 3px solid var(--error);
+    color: var(--error);
   }
 }
 </style>
