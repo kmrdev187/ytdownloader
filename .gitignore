@@ -1,0 +1,16 @@
+#directories
+/node_modules
+/dist
+/dist_electron
+/ffmpeg
+
+#local files
+.en.local
+.env.*.local
+*.local
+
+#other files
+.DS_Store
+
+#IDE
+.vscode
