@@ -61,7 +61,17 @@ export default {
       }
     }
 
-    function clearHistory() {}
+    function clearHistory() {
+      if (
+        localStorage.getItem("history") !== null &&
+        localStorage.getItem("history").length !== 0
+      ) {
+        let historyArray = JSON.parse(localStorage.getItem("history"));
+        historyArray.splice(0, historyArray.length);
+        store.commit("initHistory", historyArray);
+        localStorage.setItem("history", JSON.stringify(historyArray));
+      }
+    }
 
     return {
       toggleSidebar,

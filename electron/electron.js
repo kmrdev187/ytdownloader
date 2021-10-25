@@ -56,9 +56,11 @@ ipcMain.on("toMain", (event, args) => {
   switch (args) {
     case "openDialog":
       const result = dialog.showOpenDialogSync({
-        properties: ["openDirectory", ""],
+        properties: ["openDirectory", "createDirectory"],
       });
       if (result) {
+        console.log(result[0]);
+        downloadPath = result[0];
         event.sender.send("fromMain", result);
         store.set("download_path", result);
       }

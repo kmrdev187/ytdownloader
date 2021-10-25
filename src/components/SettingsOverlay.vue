@@ -1,7 +1,6 @@
 <script>
-import { computed, ref } from "@vue/reactivity";
+import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
-import gsap from "gsap";
 
 export default {
   props: {
@@ -18,12 +17,6 @@ export default {
       });
     });
 
-    //checkbox v-model
-    const alwaysHighest = ref(false);
-    //qualites
-    const formats = ["360p", "480p", "720p", "1080p"];
-    //select v-model
-    const selectedQuality = ref(formats[0]);
     //download path input v-model
     const downloadPath = ref("");
 
@@ -48,16 +41,14 @@ export default {
 <template>
   <div v-show="modelValue" class="settings-overlay">
     <div class="settings-overlay__form">
-      <h2>Settings</h2>
+      <div class="settings-overlay__form__titlebar">
+        <h2>Settings</h2>
+        <font-awesome-icon @click="closeOverlay" icon="times" size="lg" />
+      </div>
       <h4>Download path</h4>
       <div class="settings-overlay__select-path">
         <input v-model="downloadPath" type="text" />
         <div @click="selectPath">...</div>
-      </div>
-      <div class="settings-overlay__form__options">
-        <div class="settings-overlay-button --cancel" @click="closeOverlay">
-          cancel
-        </div>
       </div>
     </div>
   </div>
@@ -74,7 +65,7 @@ export default {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(black, 0.2);
+  background-color: rgba(black, 0.1);
   z-index: 3;
 
   .settings-overlay__form {
@@ -83,9 +74,24 @@ export default {
     border-radius: 0.5rem;
     background-color: white;
     color: black;
+    outline: 3px solid var(--input-secondary);
 
     h4 {
       margin: 0.5rem 0 0.2rem 0;
+    }
+
+    .settings-overlay__form__titlebar {
+      display: flex;
+      align-items: flex-start;
+
+      h2 {
+        margin: 0;
+      }
+
+      svg {
+        margin-left: auto;
+        cursor: pointer;
+      }
     }
 
     .settings-overlay__select-path {
@@ -93,7 +99,7 @@ export default {
       border: 1px solid var(--input-secondary);
       border-radius: 0.5rem;
       overflow: hidden;
-      width: max-content;
+      width: 100%;
 
       input[type="text"] {
         border: 0;
@@ -102,6 +108,7 @@ export default {
         background-color: var(--input-primary);
         pointer-events: none;
         padding-left: 0.5rem;
+        flex: 1;
       }
 
       div {
@@ -109,37 +116,6 @@ export default {
         padding: 0 0.5rem;
         background-color: var(--input-primary);
         cursor: pointer;
-      }
-    }
-
-    .settings-overlay__form__options {
-      display: flex;
-      width: 100%;
-      margin-top: 2rem;
-
-      .settings-overlay-button {
-        position: relative;
-        padding: 0 0.5rem;
-        background-color: var(--input-primary);
-        border-radius: 0.5rem;
-        cursor: pointer;
-        overflow: hidden;
-
-        .settings-overlay-icon {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-300%, -50%);
-        }
-
-        .settings-overlay-button__text {
-          display: block;
-        }
-      }
-
-      .--cancel {
-        border: 1px solid var(--input-secondary);
-        margin-left: auto;
       }
     }
   }

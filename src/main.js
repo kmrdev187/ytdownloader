@@ -9,6 +9,7 @@ import {
   faRedoAlt,
   faSave,
   faSearch,
+  faTimes,
   faTrash,
   faVideo,
   faWifi,
@@ -30,7 +31,8 @@ library.add(
   faChevronRight,
   faRedoAlt,
   faSearch,
-  faWifi
+  faWifi,
+  faTimes
 );
 
 const app = createApp(App).component("font-awesome-icon", FontAwesomeIcon);
