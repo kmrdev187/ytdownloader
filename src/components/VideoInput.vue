@@ -84,6 +84,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "sass:math";
+@import "@/style/_global";
 
 $inputHeight: 1.8rem;
 $switchKnobSize: 1.4rem;
@@ -97,7 +98,7 @@ $switchWidth: 3rem;
     position: relative;
     height: $inputHeight;
     width: $switchWidth;
-    background-color: var(--input-primary);
+    background-color: $input-primary-color;
     border-radius: math.div($inputHeight, 2);
     margin-right: 0.5rem;
 
@@ -111,7 +112,7 @@ $switchWidth: 3rem;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background-color: var(--input-secondary);
+      background-color: $input-secondary-color;
       color: white;
       transition: all 0.2s ease;
       cursor: pointer;
@@ -129,10 +130,10 @@ $switchWidth: 3rem;
     height: $inputHeight;
     line-height: $inputHeight;
     width: 100%;
-    background-color: var(--input-primary);
+    background-color: $input-primary-color;
 
     &::-webkit-input-placeholder {
-      color: var(--input-secondary);
+      color: $input-secondary-color;
       font-size: 1rem;
     }
   }

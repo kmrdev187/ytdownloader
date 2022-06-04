@@ -25,12 +25,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/style/_global";
 .bottom-bar {
   position: relative;
   width: 100%;
-  // box-shadow: 0 -1px 10px rgba(black, 0.2);
   z-index: 2;
-  color: #6e6e6e;
+  color: $font-secondary-color;
 
   .settings-button {
     width: max-content;
@@ -38,9 +38,10 @@ export default {
     margin: 0.5rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    transition: color 0.2s ease;
 
     &:hover {
-      color: var(--input-secondary);
+      color: $input-secondary-color;
     }
   }
 }

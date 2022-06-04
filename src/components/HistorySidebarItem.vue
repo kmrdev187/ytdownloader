@@ -66,6 +66,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/style/_global";
 .history-sidebar__item {
   display: flex;
   align-items: center;
@@ -112,7 +113,7 @@ export default {
     transition: color 0.2s ease;
 
     &:hover {
-      color: var(--input-secondary);
+      color: $input-secondary-color;
     }
   }
 }

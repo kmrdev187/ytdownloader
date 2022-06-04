@@ -56,6 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "sass:math";
+@import "@/style/_global";
 .settings-overlay {
   position: fixed;
   top: 0;
@@ -65,16 +66,16 @@ export default {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(black, 0.1);
+  background-color: $overlay-color;
   z-index: 3;
 
   .settings-overlay__form {
     width: 20rem;
     padding: 1rem;
     border-radius: 0.5rem;
-    background-color: white;
-    color: black;
-    outline: 3px solid var(--input-secondary);
+    background-color: $card-bg-color;
+    color: $font-primary-color;
+    outline: 3px solid $input-secondary-color;
 
     h4 {
       margin: 0.5rem 0 0.2rem 0;
@@ -96,7 +97,7 @@ export default {
 
     .settings-overlay__select-path {
       display: flex;
-      border: 1px solid var(--input-secondary);
+      border: 1px solid $input-secondary-color;
       border-radius: 0.5rem;
       overflow: hidden;
       width: 100%;
@@ -105,7 +106,7 @@ export default {
         border: 0;
         outline: none;
         appearance: none;
-        background-color: var(--input-primary);
+        background-color: $input-primary-color;
         pointer-events: none;
         padding-left: 0.5rem;
         flex: 1;
@@ -114,7 +115,7 @@ export default {
       div {
         font-size: 1.2rem;
         padding: 0 0.5rem;
-        background-color: var(--input-primary);
+        background-color: $input-primary-color;
         cursor: pointer;
       }
     }

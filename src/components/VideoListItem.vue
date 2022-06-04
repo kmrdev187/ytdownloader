@@ -93,6 +93,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/style/_global";
 .video-list__item {
   display: flex;
   align-items: center;
@@ -131,7 +132,7 @@ export default {
 
   .video-list__item__type {
     margin: 0 1rem;
-    color: #999;
+    color: $watermark-color;
   }
 
   .download-button {

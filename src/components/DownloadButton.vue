@@ -1,6 +1,5 @@
 <script>
 import { computed, ref } from "@vue/reactivity";
-import { v4 as uuid } from "uuid";
 import gsap from "gsap";
 import { useStore } from "vuex";
 
@@ -35,13 +34,14 @@ export default {
       progressMax = ref(0);
 
     function startDownload() {
-      //first animation timeline (show progress bar)
+      //first animation timeline (it shows a progress bar)
       tl.to(`#${downloadIconId.value}`, {
         top: "150%",
       }).to(`#${progressId.value}`, {
         top: "50%",
       });
 
+      //args for download processes
       const args = {
         url: props.downloadObj.url,
         id: props.downloadObj.id,
@@ -52,12 +52,14 @@ export default {
         ? window.ipc.send("toDownloadAudio", args)
         : window.ipc.send("toDownload", args);
 
-      //download progress
+      //download progress from electron.js
+      //item's id is the ipc channel (id added to item in VideoInput component)
       window.ipc.receive(props.downloadObj.id, (event) => {
         progressMax.value = event.total;
         progressValue.value = event.downloaded;
 
         //when the download is complete, the second timeline will start
+        //and when the second timeline is done, item will be added to local storage and history array in vuex
         if (event.downloaded == event.total) {
           tl2
             .to(`#${progressId.value}`, {
@@ -66,6 +68,7 @@ export default {
             .to(`#${doneIconId.value}`, {
               top: "50%",
               onComplete: () => {
+                //history object
                 let storageObject = {
                   id: props.downloadObj.id,
                   url: props.downloadObj.url,
@@ -134,6 +137,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "sass:math";
+@import "@/style/_global";
 $progressHeight: 0.5rem;
 
 .download-button {
@@ -157,7 +161,7 @@ $progressHeight: 0.5rem;
     top: -50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--input-secondary);
+    color: $input-secondary-color;
   }
 
   .download-button__progress {
@@ -172,11 +176,11 @@ $progressHeight: 0.5rem;
     &::-webkit-progress-bar {
       overflow: hidden;
       border-radius: math.div($progressHeight, 2);
-      background-color: var(--input-primary);
+      background-color: $input-primary-color;
     }
 
     &::-webkit-progress-value {
-      background-color: var(--input-secondary);
+      background-color: $input-secondary-color;
     }
   }
 }

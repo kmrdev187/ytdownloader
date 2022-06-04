@@ -113,6 +113,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/style/_global";
 .history-sidebar {
   position: relative;
   height: 100%;
@@ -125,17 +126,17 @@ export default {
     height: 5rem;
     width: 1.5rem;
     border-radius: 0.5rem;
-    background-color: var(--input-primary);
+    background-color: $input-primary-color;
     margin-right: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #aeaeae;
+    color: $font-secondary-color;
     cursor: pointer;
     transition: all 0.2s ease;
 
     &:hover {
-      box-shadow: inset 0 0 5px rgba(black, 0.2);
+      box-shadow: $sidebar-button-hover-shadow;
     }
   }
 
@@ -144,7 +145,7 @@ export default {
     flex-direction: column;
     height: 100%;
     width: 0;
-    background-color: var(--input-primary);
+    background-color: $input-primary-color;
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
     overflow-y: auto;
@@ -165,7 +166,7 @@ export default {
         transition: color 0.2s ease;
 
         &:hover {
-          color: var(--input-secondary);
+          color: $input-secondary-color;
         }
       }
     }
@@ -177,7 +178,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #aeaeae;
+      color: $font-secondary-color;
 
       h2 {
         margin: 0 0 0 1rem;

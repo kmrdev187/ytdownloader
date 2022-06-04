@@ -71,13 +71,7 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-
-:root {
-  --input-primary: #f1f1f1;
-  --input-secondary: #3eaeff;
-  --error: rgb(241, 86, 86);
-  --save: rgb(43, 201, 43);
-}
+@import "./style/_global";
 
 * {
   box-sizing: border-box;
@@ -92,12 +86,12 @@ export default {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--input-primary);
+  background: $scrollbar-track;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #aeaeae;
+  background: $scrollbar-thumb;
   border-radius: 3px;
 }
 
@@ -123,7 +117,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #aeaeae;
+    color: $font-secondary-color;
     z-index: -1;
   }
 }

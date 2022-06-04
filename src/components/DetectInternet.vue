@@ -29,6 +29,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/style/_global";
 .detect-internet {
   position: fixed;
   top: 0;
@@ -38,7 +39,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(black, 0.1);
+  background-color: $overlay-color;
   z-index: 3;
 
   .detect-internet__card {
@@ -46,8 +47,8 @@ export default {
     border-radius: 0.5rem;
     background-color: white;
     text-align: center;
-    outline: 3px solid var(--error);
-    color: var(--error);
+    outline: 3px solid $error-color;
+    color: $error-color;
   }
 }
 </style>

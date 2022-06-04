@@ -18,11 +18,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "@/style/_global";
 .skeleton-loader {
   width: 100%;
   padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;
-  background-color: var(--input-primary);
+  background-color: $input-primary-color;
   display: flex;
   align-items: flex-start;
 
@@ -30,7 +31,7 @@ export default {
     display: block;
     width: 8rem;
     height: 4.5rem;
-    background-color: #999;
+    background-color: $watermark-color;
     border-radius: 0.5rem;
     margin-right: 0.5rem;
   }
@@ -38,7 +39,7 @@ export default {
   .skeleton-loader__text {
     height: 2rem;
     width: 100%;
-    background-color: #999;
+    background-color: $watermark-color;
     border-radius: 0.5rem;
   }
 }
